@@ -1,7 +1,7 @@
 pipeline {
     agent {
         docker {
-            image 'postman/newman:latest'
+            image 'mcp/playwright:latest'
             args '-u root --entrypoint='
         }
     }
@@ -21,13 +21,6 @@ pipeline {
             steps {
                 sh ' npx playwright test'
             }
-        }
-    }
-    post {
-        success {
-            // 1. Archive le rapport (téléchargeable depuis la page du build)
-            archiveArtifacts artifacts: 'reports/*.html',allowEmptyArchive: true
-
         }
     }
 }
