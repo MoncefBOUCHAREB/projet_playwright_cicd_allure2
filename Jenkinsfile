@@ -17,14 +17,9 @@ pipeline {
                 sh 'npm install'
             }
         }
-        stage('Lancer le test') {
+        stage('Lancer le test test') {
             steps {
-                sh '''
-                    npx newman run collections/collection.json \
-                        -e env/preprod.json \
-                        -r cli,htmlextra \
-                        --reporter-htmlextra-export reports/rapport.html
-                '''
+                sh ' npx playwright test'
             }
         }
     }
