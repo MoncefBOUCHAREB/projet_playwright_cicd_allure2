@@ -6,12 +6,6 @@ pipeline {
         }
     }
     stages {
-        stage('Check version nodejs') {
-            steps {
-                sh 'newman --version'
-                sh 'npm --version'
-            }
-        }
         stage('install dep') {
             steps {
                 sh 'npm install'
